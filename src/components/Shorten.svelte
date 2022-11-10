@@ -34,7 +34,9 @@
 
   function copyToClipboard(url) {
     try {
-      navigator.clipboard.writeText(url)
+      navigator.clipboard.writeText(url.short);
+      url.isCopied = true;
+      urls = urls; // triggers refresh, isCopied styling
     } catch(err) {
       console.log("error copying text")
     }
@@ -63,7 +65,7 @@
         <div>
           <p class="short-link">{url.short}</p>
           <a
-            on:click|preventDefault={() => copyToClipboard(url.short)}
+            on:click|preventDefault={() => copyToClipboard(url)}
             href="/"
             class="btn btn-square"
             class:is-copied={url.isCopied}
