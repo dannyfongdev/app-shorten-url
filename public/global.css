@@ -447,6 +447,7 @@ section .box {
   background-color: white;
   padding: 0px 25px;
   border-radius: 5px;
+  z-index: 2;
 }
 
 section .box img {
@@ -471,7 +472,23 @@ section .box img {
   padding: 1rem 1.5rem;
 }
 
-@media (min-width: 768px) {
+.boxes::after {
+  content: '';
+  position: relative;
+  top: -800px;
+  left: 48.7%;
+  border: 0;
+  margin: 0;
+  border-left: 10px solid var(--primary-color-1);
+  height: 600px;
+  z-index: 1;
+}
+
+.statistics hr {
+  display: none;
+}
+
+@media (min-width: 845px) {
   section.section-statistics {
     padding-bottom: 200px;
   }
@@ -481,10 +498,29 @@ section .box img {
     margin: auto;
     text-align: left;
   }
+
   section .boxes {
     display: flex;
     flex-direction: row;
     gap: 30px;
+  }
+
+  .boxes::after {
+    /* turns off vertical line */
+    display: none;
+  }
+
+  
+  .statistics hr {
+    display: block;
+    border: 0;
+    position: relative;
+    /* margin-left: 100px; */
+    top: 150px;
+    color: var(--statistics-bg-color);
+    border-bottom: 10px solid var(--primary-color-1);
+    width: 775px;
+    z-index: 1;
   }
 
   section .box-2 {
@@ -495,7 +531,6 @@ section .box img {
   section .box-3 {
     position: relative;
     top: 100px;
-    /* margin-bottom: 200px; */
   }
 
   .statistics p {
@@ -508,9 +543,9 @@ section .box img {
   }
   
   .statistics-header p {
-    padding: 1rem 16rem;
+    padding: 1rem 20vw;
     text-align: center;
-    font-size: 1rem
+    font-size: 1rem;
   }
 
 }
