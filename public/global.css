@@ -48,13 +48,6 @@ a {
   text-decoration: none;
 }
 
-/* General Styles */
-
-/* .btn {
-  display: inline-block;
-  padding: .5rem 1rem;
-} */
-
 /* Navigation Bar */
 
 header .nav-container {
@@ -64,6 +57,12 @@ header .nav-container {
   display: grid;
   grid-template-columns: auto 1fr;
   gap: 40px;
+}
+
+header .logo {
+  position: relative;
+  top: 8px;
+  margin-right: 45px;
 }
 
 nav .primary-navigation {
@@ -94,10 +93,17 @@ nav a:hover {
   color: var(--neutral-color-3)
 }
 
-header .logo {
-  position: relative;
-  top: 5px;
-  margin-right: 45px;
+nav a.btn {
+  display: inline-block;
+  background-color: var(--primary-color-1);
+  color: white;
+  padding: 0.5rem 1.5rem;
+  border-radius: 25px;
+}
+
+header .menu-icon {
+  display: none;
+  color: var(--neutral-color-2);
 }
 
 /* Mobile Navigation 
@@ -108,21 +114,17 @@ nav .primary-navigation[data-visible] {
   display: flex;
 }
 
-header .menu-icon {
-  display: none;
-  color: var(--neutral-color-2);
-}
-
-nav .divider {
-  display: none;
-}
-
 @media (max-width: 768px) {
   header .nav-container {
     padding: 25px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+  }
+  
+  header .logo {
+    position: relative;
+    left: 4px;
   }
 
   header .menu-icon {
@@ -143,6 +145,10 @@ nav .divider {
     z-index: 5;
   }
 
+  nav .menu-a:first-child {
+    margin-top: 25px;
+  }
+
   nav .menu-a,
   nav .menu-b {
     flex-direction: column;
@@ -153,22 +159,38 @@ nav .divider {
     /* takes away margin added in Desktop view */
     margin: 0;
   }
-
-  nav .divider {
-    display: block;
-  }
-
-  nav li {
-    margin: 1.5rem 1rem;
-  }
-
+  
   nav a {
+    padding: 10px 0;
     color: white;
   }
 
-  header .logo {
-    position: relative;
-    left: 4px;
+  nav a:hover {
+    color: var(--neutral-color-1);
+  }
+
+  nav a.btn {
+    font-size: 1rem;
+    margin: 10px 0 40px;
+    width: 75vw;
+  }
+
+  nav a.btn:hover {
+    background-color: var(--btn-hover-color);
+    color: white;
+  }
+
+  /* divider between Resources and Login */
+  nav .menu-a {
+    width: 100%;
+  }
+
+  nav .menu-a::after {
+    content: '';
+    border-bottom: 1px solid var(--line-color);
+    width: 75vw;
+    padding-top: 20px;
+    margin-bottom: 20px
   }
 }
 
