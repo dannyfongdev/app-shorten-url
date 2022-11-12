@@ -16,12 +16,22 @@
   const shorty = new Shorten();
 
   function getShortUrl(url) {
-    shorty
-      .getShortUrl(url)
-      .then((result) => {
-        paintUrl(url, result);
-      })
-      .catch((err) => console.log(err));
+    if (url === "") {
+      isError = true;
+      errorMessage = "Please add a link";
+    } else {
+      isError = false;
+
+      shorty
+        .getShortUrl(url)
+        .then((result) => {
+          paintUrl(url, result);
+        })
+        .catch((err) => {
+          isError = true;
+          errorMessage = err;
+        });
+    }
   }
 
   function paintUrl(longUrl, shortUrl) {
@@ -37,10 +47,14 @@
       navigator.clipboard.writeText(url.short);
       url.isCopied = true;
       urls = urls; // triggers refresh, isCopied styling
-    } catch(err) {
-      console.log("error copying text")
+    } catch (err) {
+      console.log("error copying text");
     }
   }
+
+  /* Error Handling */
+  let isError = false;
+  let errorMessage = "Please add a link";
 </script>
 
 <section class="section-shorten">
@@ -52,7 +66,9 @@
         placeholder="Shorten a link here..."
         bind:value={searchString}
       />
-      <!-- <p id="shorten-alert"><em>Please add a link</em></p> -->
+      {#if isError}
+        <p id="shorten-alert"><em>{errorMessage}</em></p>
+      {/if}
       <a
         href="/"
         on:click|preventDefault={() => getShortUrl(searchString)}

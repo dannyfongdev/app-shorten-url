@@ -288,6 +288,7 @@ section.section-shorten {
 
 .shorten {
   padding: 25px;
+  position: relative;
 }
 
 .shorten-bar {
@@ -310,6 +311,20 @@ section.section-shorten {
   padding: 15px;
   margin-bottom: 1rem;
   font-size: 0.9rem;
+  outline-color: var(--secondary-color);
+}
+
+#shorten-string:focus {
+  outline-style: solid;
+  outline-color: var(--secondary-color);
+}
+
+#shorten-alert {
+  position: static;
+  color: var(--secondary-color);
+  font-size: 0.8rem;
+  margin-top: -12px;
+  margin-bottom: 1rem;
 }
 
 main a.btn-square {
@@ -357,7 +372,7 @@ main a.btn-square {
   font-size: 0.7rem;
 } */
 
-@media (min-width: 768px) {
+@media (min-width: 935px) {
   .shorten {
     max-width: var(--max-width);
     margin: auto;
@@ -416,6 +431,13 @@ main a.btn-square {
     padding: .5rem 1.5rem;
     width: 120px;
     font-size: .9rem;
+  }
+
+  #shorten-alert {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 125px;
   }
 }
 
@@ -618,6 +640,21 @@ footer .box-c {
 
 footer .social-box img {
   padding: 0 10px;
+}
+
+footer a:hover {
+  color: var(--primary-color-1)
+}
+
+footer img:hover {
+  fill: var(--primary-color-1);
+}
+
+footer .attribution {
+  text-align: center;
+  font-size: 0.7rem;
+  color: var(--neutral-color-1);
+  padding-bottom: 50px;
 }
 
 @media (min-width: 768px) {
