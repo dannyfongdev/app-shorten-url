@@ -246,13 +246,15 @@ main a.btn:hover {
   main .hero {
     max-width: var(--max-width);
     margin: auto;
+    padding-top: 80px;
+    padding-bottom: 40px;
   }
 
   main .hero-text {
     text-align: left;
     width: 564px;
     position: absolute;
-    top: 0;
+    top: 100px;
   }
 
   main h1 {
