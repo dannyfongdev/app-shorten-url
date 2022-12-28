@@ -57,7 +57,7 @@
   let errorMessage = "Please add a link";
 </script>
 
-<section class="section-shorten">
+<div class="section-shorten">
   <div class="shorten">
     <div class="shorten-bar">
       <input
@@ -91,4 +91,4 @@
       </div>
     {/each}
   </div>
-</section>
+</div>
